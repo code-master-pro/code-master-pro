@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Master pro - Learn Web Development</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .course-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .editor-container {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .editor-header {
+            background-color: #2d2d2d;
+            padding: 0.5rem 1rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-editor {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: none;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Courier New', Courier, monospace;
+            resize: vertical;
+        }
+
+        .run-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .run-button:hover {
+            background-color: #c0392b;
+        }
+
+        .quiz-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .quiz-question {
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .course-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">CodeMaster</a>
+            <div class="nav-links">
+                <a href="#html">HTML</a>
+                <a href="#css">CSS</a>
+                <a href="#js">JavaScript</a>
+                <a href="#projects">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Become a Web Developer</h1>
+        <p>Learn HTML, CSS, and JavaScript from scratch with interactive examples</p>
+    </section>
+
+    <div class="course-container">
+        <!-- Interactive HTML Editor -->
+        <section class="course-card" id="html">
+            <h2>HTML Fundamentals</h2>
+            <p>Learn the structure of web pages</p>
+            
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span>Try HTML Editor</span>
+                    <button class="run-button" onclick="runHTML()">Run</button>
+                </div>
+                <textarea class="code-editor" id="html-editor">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <p>Edit this code and click Run</p>
+</body>
+</html>
+                </textarea>
+            </div>
+            <iframe id="html-output" style="width: 100%; height: 200px; border: 1px solid #ccc; margin-top: 1rem;"></iframe>
+        </section>
+
+        <!-- CSS Editor -->
+        <section class="course-card" id="css">
+            <h2>CSS Styling</h2>
+            <p>Style your web pages beautifully</p>
+            
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span>CSS Editor</span>
+                    <button class="run-button" onclick="runCSS()">Run</button>
+                </div>
+                <textarea class="code-editor" id="css-editor">
+body {
+    background-color: lightblue;
+    font-family: Arial;
+}
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+                </textarea>
+            </div>
+        </section>
+
+        <!-- JavaScript Editor -->
+        <section class="course-card" id="js">
+            <h2>JavaScript Programming</h2>
+            <p>Add interactivity to your websites</p>
+            
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span>JavaScript Editor</span>
+                    <button class="run-button" onclick="runJS()">Run</button>
+                </div>
+                <textarea class="code-editor" id="js-editor">
+document.body.addEventListener('click', function() {
+    alert('You clicked the page!');
+});
+                </textarea>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section" id="quiz">
+            <h2>Test Your Knowledge</h2>
+            <div class="quiz-question">
+                <h3>What does HTML stand for?</h3>
+                <div class="quiz-options">
+                    <button onclick="checkAnswer(this, true)">Hyper Text Markup Language</button>
+                    <button onclick="checkAnswer(this, false)">Hyper Transfer Markup Language</button>
+                    <button onclick="checkAnswer(this, false)">High Tech Modern Language</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 CodeMaster. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Interactive Code Editors
+        function runHTML() {
+            const code = document.getElementById('html-editor').value;
+            const output = document.getElementById('html-output');
+            output.srcdoc = code;
+        }
+
+        function runCSS() {
+            const cssCode = document.getElementById('css-editor').value;
+            const style = document.createElement('style');
+            style.innerHTML = cssCode;
+            document.head.appendChild(style);
+        }
+
+        function runJS() {
+            const jsCode = document.getElementById('js-editor').value;
+            try {
+                eval(jsCode);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // Quiz Functionality
+        function checkAnswer(button, isCorrect) {
+            const allButtons = button.parentElement.querySelectorAll('button');
+            allButtons.forEach(btn => {
+                btn.style.backgroundColor = '';
+                btn.disabled = true;
+            });
+            
+            button.style.backgroundColor = isCorrect ? '#2ecc71' : '#e74c3c';
+        }
+
+        // Initialize HTML Editor
+        runHTML();
+    </script>
+</body>
+</html>
